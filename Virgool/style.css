@@ -6,17 +6,19 @@ a {
   color: inherit;
 }
 
-*, *::after, *::before {
+*,
+*::after,
+*::before {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
 main {
-  padding: 10%;
   width: 100%;
   height: 100vh;
   overflow-y: scroll;
+  position: relative;
 }
 main span {
   display: flex;
@@ -28,18 +30,27 @@ main span {
   margin-bottom: 100px;
   border: dashed 2px gray;
   padding: 50px;
+  border-radius: 10px;
+}
+
+.smooth {
+  scroll-behavior: smooth;
 }
 
 #progBar {
   width: 100%;
-  height: 10px;
+  height: 15px;
   position: fixed;
   left: 0;
   top: 0;
+  z-index: 1000;
 }
 #progBar .line {
+  width: 0%;
   height: 100%;
-  color: rgb(0, 89, 255);
+  background: rgb(0, 89, 255);
+  box-shadow: 0px 0px 10px rgb(0, 89, 255);
+  transition: 0.4s ease-out;
 }
 
 #controls {
@@ -57,6 +68,7 @@ main span {
   justify-content: space-between;
   align-items: center;
   padding: 35px 0px;
+  z-index: 100;
 }
 #controls div {
   width: 50px;
@@ -68,14 +80,19 @@ main span {
   transition: 0.4s;
   border-radius: 50%;
 }
-#controls div:hover {
-  background: rgba(151, 151, 151, 0.205);
-  color: black;
-}
 
 .activeControl {
   color: white;
   background: rgb(0, 89, 255);
   box-shadow: 0px 0px 10px rgb(93, 150, 255);
   transform: scale(1.3);
+}
+
+#content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
+  padding: 10%;
 }/*# sourceMappingURL=style.css.map */
